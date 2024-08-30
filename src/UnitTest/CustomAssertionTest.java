@@ -24,7 +24,7 @@ public class CustomAssertionTest {
     private int multiply(int a, int b) {
         return a * b;
     }
-
+    // Custom assertion method
     private static void assertWithMessage(String message, boolean condition) {
         assert condition : message;
     }

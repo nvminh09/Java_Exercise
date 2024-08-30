@@ -14,11 +14,9 @@ public class SingletonTest {
                 e.printStackTrace();
             }
             Singleton instance2 = Singleton.getInstance();
-
             // Assert that both instances obtained in the same thread are the same
             assertEquals(instance1, instance2);
         });
-
         Thread thread2 = new Thread(() -> {
             Singleton instance3 = Singleton.getInstance();
             try {
@@ -27,20 +25,16 @@ public class SingletonTest {
                 e.printStackTrace();
             }
             Singleton instance4 = Singleton.getInstance();
-
             // Assert that both instances obtained in the same thread are the same
             assertEquals(instance3, instance4);
         });
-
         // Start the threads
         thread1.start();
         thread2.start();
-
         // Wait for threads to finish
         thread1.join();
         thread2.join();
     }
-
     public static void main(String[] args) {
         // Run the JUnit test
         org.junit.runner.JUnitCore.main("SingletonTest");

@@ -6,7 +6,6 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
 import static org.junit.Assert.*;
-
 public class ExceptionTest {
     // Example class with a method that throws a specific exception
     public class ExampleClass {
@@ -17,7 +16,6 @@ public class ExceptionTest {
             return a / b;
         }
     }
-
     // JUnit test case to verify the specific exception
     @Test(expected = ArithmeticException.class)
     public void testDivideByZero() {

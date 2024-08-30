@@ -1,5 +1,5 @@
-
-package UnitTest.TearDown;// ExceptionTest.java
+// Write a Java test case that implements a JUnit test with setup and teardown methods to prepare and clean up resources for multiple test cases.
+package UnitTest.ExceptionTest;
 
 import org.junit.After;
 import org.junit.Before;
@@ -79,3 +79,4 @@ public class SetupTeardownTest {
         }
     }
 }
+

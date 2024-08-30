@@ -52,7 +52,7 @@ public class ParameterizedTest {
 
     // Main function to run JUnit tests
     public static void main(String[] args) {
-        Result result = JUnitCore.runClasses(MultiplyTest.class);
+        Result result = JUnitCore.runClasses(MultiplyTest.class); // Run the parameterized test
         // Check if there are any failures
         if (result.getFailureCount() > 0) {
             System.out.println("Test failed:");

@@ -14,25 +14,14 @@ public class CalculatorTest {
         // Act
         int result = calculator.add(3, 5);
         // Assert
-        assertEquals(8, result); // The expected value is 8
+        assertEquals(9, result); // The expected value is 8
     }
-    @Test
-    public void testAdd1() {
-        // Arrange
-        Calculator calculator = new Calculator();
-        // Act
-        int result = calculator.add(3, 5);
-        // Assert
-        assertEquals(8, result); // The expected value is 8
-    }
-
     public static void main(String[] args) {
         // JUnitCore.runClasses: Invokes JUnit to run all the test methods in the specified class (CalculatorTest.class).
         Result result = JUnitCore.runClasses(CalculatorTest.class);
         // Check if there are any failures
         if (result.getFailureCount() > 0) {
             System.out.println("Test failed:");
-
             // Print details of failures
             for (Failure failure : result.getFailures()) {
                 System.out.println(failure.toString());
