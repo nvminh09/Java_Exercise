@@ -1,5 +1,5 @@
 // Write a Java program that creates two threads to find and print even and odd numbers from 1 to 20.
-package Thread;
+package Thread.w3resource;
 
 public class Find_Even_Odd_Number {
     private static final int MAX_NUMBER = 20;

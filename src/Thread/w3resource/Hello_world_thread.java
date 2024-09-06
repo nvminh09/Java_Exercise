@@ -1,5 +1,5 @@
 // Write a Java program to create a basic Java thread that prints "Hello, World!" when executed.
-package Thread;
+package Thread.w3resource;
 public class Hello_world_thread extends Thread {
     @Override
     public void run() {
