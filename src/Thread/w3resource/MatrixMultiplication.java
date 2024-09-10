@@ -3,7 +3,6 @@ package Thread.w3resource;
 public class MatrixMultiplication {
     private static final int MATRIX_SIZE = 3;
     private static final int NUM_THREADS = 2;
-
     public static void main(String[] args) {
         int[][] matrix1 = {
                 {1, 2, 3},
