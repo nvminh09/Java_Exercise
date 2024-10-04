@@ -1,6 +1,10 @@
 package NetworkProgramming.BaiTap15.RemoteServer;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
@@ -36,8 +40,26 @@ public class RemoteServer {
                     writer.println("Shutdown command has been sent to the client");
                     writer.flush();
                 } else if (request.equals("restart")) {
-                    Runtime.getRuntime().exec("shutdown -r -t 1");
+                    Runtime.getRuntime().exec("shutdown -r -t 3600");
                     writer.println("Restart command has been sent to the client");
+                    writer.flush();
+                } else if (request.equals("cancel shutdown/restart")) {
+                    Runtime.getRuntime().exec("shutdown -a");
+                    writer.println("Cancel Shutdown/Restart command has been sent to the client");
+                    writer.flush();
+                } else if (request.equals("screenshot")) {
+                    // Capture screenshot
+                    BufferedImage screenshot = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    ImageIO.write(screenshot, "png", baos);
+                    writer.flush();
+                    byte[] imageBytes = baos.toByteArray();
+                    baos.close();
+                    writer.println(imageBytes.length);
+                    writer.flush();
+                    socket.getOutputStream().write(imageBytes);
+                } else {
+                    writer.println("Invalid command");
                     writer.flush();
                 }
             }
