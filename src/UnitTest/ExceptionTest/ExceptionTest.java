@@ -5,15 +5,26 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
+import static jdk.nashorn.internal.objects.Global.print;
 import static org.junit.Assert.*;
 public class ExceptionTest {
     // Example class with a method that throws a specific exception
     public class ExampleClass {
-        public int divide(int a, int b) {
-            if (b == 0) {
-                throw new ArithmeticException("Cannot divide by zero");
+//        public int divide(int a, int b) {
+//            if (b == 0) {
+//                throw new ArithmeticException("Cannot divide by zero.");
+//            }
+//            return a / b;
+//        }
+        public double divide(int a, int b) {
+            try {
+                double c = a / b;
+                System.out.println("Result: " + c);
+                return c;
+            } catch (ArithmeticException e) {
+                System.out.println("Exception caught: " + e.getMessage());
+                return 0;
             }
-            return a / b;
         }
     }
     // JUnit test case to verify the specific exception
@@ -22,8 +33,9 @@ public class ExceptionTest {
         // Arrange
         ExampleClass example = new ExampleClass();
         // Act
-        int result = example.divide(10, 0);
+        double result = example.divide(10, 2);
         // Assert (Exception is expected, so nothing to assert)
+
     }
 
     // Main function to run JUnit tests

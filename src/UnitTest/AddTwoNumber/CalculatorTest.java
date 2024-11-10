@@ -21,7 +21,7 @@ public class CalculatorTest {
         Result result = JUnitCore.runClasses(CalculatorTest.class);
         // Check if there are any failures
         if (result.getFailureCount() > 0) {
-            System.out.println("Test failed:");
+            System.out.println("Test failed !");
             // Print details of failures
             for (Failure failure : result.getFailures()) {
                 System.out.println(failure.toString());
